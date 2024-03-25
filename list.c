@@ -65,8 +65,13 @@ void * lastList(List * list)
   return list->current->data;
 }
 
-void * prevList(List * list) {
-    return NULL;
+//La segunda función retorna el dato del nodo anterior a current y actualiza el current para que apunte a ese nodo.
+void * prevList(List * list)
+{
+  if (list->current->prev == NULL) return NULL;
+  list->current = list->current->prev;
+  
+  return list->current->data;
 }
 
 void pushFront(List * list, void * data) {
