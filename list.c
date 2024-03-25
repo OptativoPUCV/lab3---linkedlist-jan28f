@@ -138,6 +138,12 @@ void * popCurrent(List * list)
   nextList(list);
   list->current->prev = aux->prev;
 
+  if (list->head == NULL)
+  {
+    list->head = NULL;
+    list->tail = NULL;
+  }
+
   return aux->data;
 }
 
