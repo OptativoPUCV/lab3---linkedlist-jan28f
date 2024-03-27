@@ -48,7 +48,7 @@ void * firstList(List * list)
 
 void *nextList(List* list)
 {
-    Node *newNode = crateNode(NULL);
+    Node *newNode = createNode(NULL);
     if (list->current == NULL || list->current->next == NULL)
     {
         list->current = newNode;
