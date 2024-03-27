@@ -242,3 +242,16 @@ Wed 27 Mar 2024 06:00:41 PM UTC:
  1 file changed, 5 insertions(+), 15 deletions(-)
  tests:  0|0
 c402e3d
+Wed 27 Mar 2024 06:49:35 PM UTC: 
+ list.c | 33 +++++++++++++++++++++------------
+ 1 file changed, 21 insertions(+), 12 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘nextList’:
+list.c:51:21: error: implicit declaration of function ‘crateNode’; did you mean ‘createNode’? [-Werror=implicit-function-declaration]
+   51 |     Node *newNode = crateNode(NULL);
+      |                     ^~~~~~~~~
+      |                     createNode
+list.c:51:21: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+cc1: all warnings being treated as errors
+Compilation failed
+d4d44f2

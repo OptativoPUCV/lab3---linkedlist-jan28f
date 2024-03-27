@@ -46,12 +46,16 @@ void * firstList(List * list)
   return list->head->data;
 }
 
-void * nextList(List * list)
+void *nextList(List* list)
 {
-  if (list->current == NULL || list->current->next == NULL) return NULL;
-  list->current = list->current->next;
-
-  return list->current->data;
+    Node *newNode = crateNode(NULL);
+    if (list->current == NULL || list->current->next == NULL)
+    {
+        list->current = newNode;
+    }
+    else
+        list->current = list->current->next;
+    return list->current->data;
 }
 
 void * lastList(List * list)
@@ -116,25 +120,30 @@ void * popFront(List * list) {
     return popCurrent(list);
 }
 
-void * popBack(List * list) {
-    list->current = list->tail;
-    return popCurrent(list);
-}
-
 void * popCurrent(List * list)
 {
   if (list->current == NULL) return NULL;
 
   Node *aux = list->current;
-  list->current = list->current->prev;
-  list->current->next = aux->next;
-  list->current = list->current->next;
-  list->current->prev = aux->prev;
-  
-  if (list->current->next == NULL)
-    list->tail = list->current;
-  else if (aux->prev == NULL)
+  if (aux->prev == NULL)
+  {
+    list->current = list->current->next;
     list->head = list->current;
+    list->head->prev = NULL;
+  }
+  else if (aux->next == NULL)
+  {
+    list->current = list->current->prev;
+    list->tail = list->current;
+    list->tail->next = NULL;
+  }
+  else
+  {
+    list->current = list->current->prev;
+    list->current->next = aux->next;
+    list->current = list->current->next;
+    list->current->prev = aux->prev;
+  }
 
   return aux->data;
 }
