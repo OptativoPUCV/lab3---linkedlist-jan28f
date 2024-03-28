@@ -272,3 +272,14 @@ list.c:127:27: error: ‘nodeToRemove’ undeclared (first use in this function)
 list.c:127:27: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 7eed99a
+Thu 28 Mar 2024 01:34:31 AM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:132:27: error: ‘nodeToRemove’ undeclared (first use in this function)
+  132 |         aux->next->prev = nodeToRemove->prev;
+      |                           ^~~~~~~~~~~~
+list.c:132:27: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+c25bfe0

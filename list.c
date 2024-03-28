@@ -124,7 +124,7 @@ void * popCurrent(List * list)
   Node *aux = list->current;
 
   if (aux->prev != NULL)
-        aux->prev->next = nodeToRemove->next;
+        aux->prev->next = aux->next;
   else
       list->head = aux->next;
 
