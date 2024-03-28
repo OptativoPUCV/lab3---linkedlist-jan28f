@@ -283,3 +283,9 @@ list.c:132:27: error: ‘nodeToRemove’ undeclared (first use in this function)
 list.c:132:27: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 c25bfe0
+Thu 28 Mar 2024 01:34:40 AM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  12|0
+total_score: 70/70
+b9a2421
