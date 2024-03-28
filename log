@@ -261,3 +261,14 @@ Wed 27 Mar 2024 06:49:51 PM UTC:
  tests:  12|0
 total_score: 70/70
 cf91c75
+Thu 28 Mar 2024 01:34:16 AM UTC: 
+ list.c | 40 +++++++++++++++-------------------------
+ 1 file changed, 15 insertions(+), 25 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:127:27: error: ‘nodeToRemove’ undeclared (first use in this function)
+  127 |         aux->prev->next = nodeToRemove->next;
+      |                           ^~~~~~~~~~~~
+list.c:127:27: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+7eed99a

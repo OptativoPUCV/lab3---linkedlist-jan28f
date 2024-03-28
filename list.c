@@ -46,16 +46,12 @@ void * firstList(List * list)
   return list->head->data;
 }
 
-void *nextList(List* list)
+void * nextList(List * list)
 {
-    Node *newNode = createNode(NULL);
-    if (list->current == NULL || list->current->next == NULL)
-    {
-        list->current = newNode;
-    }
-    else
-        list->current = list->current->next;
-    return list->current->data;
+  if (list->current == NULL || list->current->next == NULL) return NULL;
+  list->current = list->current->next;
+
+  return list->current->data;
 }
 
 void * lastList(List * list)
@@ -122,28 +118,22 @@ void * popFront(List * list) {
 
 void * popCurrent(List * list)
 {
-  if (list->current == NULL) return NULL;
+    if (list == NULL || list->current == NULL)
+        return NULL;
 
   Node *aux = list->current;
-  if (aux->prev == NULL)
-  {
-    list->current = list->current->next;
-    list->head = list->current;
-    list->head->prev = NULL;
-  }
-  else if (aux->next == NULL)
-  {
-    list->current = list->current->prev;
-    list->tail = list->current;
-    list->tail->next = NULL;
-  }
+
+  if (aux->prev != NULL)
+        aux->prev->next = nodeToRemove->next;
   else
-  {
-    list->current = list->current->prev;
-    list->current->next = aux->next;
-    list->current = list->current->next;
-    list->current->prev = aux->prev;
-  }
+      list->head = aux->next;
+
+  if (aux->next != NULL)
+        aux->next->prev = nodeToRemove->prev;
+  else
+      list->tail = aux->prev;
+
+  list->current = aux->next;
 
   return aux->data;
 }
