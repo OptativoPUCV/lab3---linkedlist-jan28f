@@ -118,16 +118,13 @@ void * popFront(List * list) {
 
 void * popCurrent(List * list)
 {
-    if (list == NULL || list->current == NULL)
-        return NULL;
+  if (list->current == NULL) return NULL;
 
   Node *aux = list->current;
-
   if (aux->prev != NULL)
         aux->prev->next = aux->next;
   else
       list->head = aux->next;
-
   if (aux->next != NULL)
         aux->next->prev = aux->prev;
   else
